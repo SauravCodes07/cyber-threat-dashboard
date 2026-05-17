@@ -1,16 +1,65 @@
-# React + Vite
+# Cross-Platform Cybersecurity Threat Intelligence Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Enterprise-grade SOC platform with real-time Firebase threat intelligence, Google authentication, correlation engine, and AI security assistant.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Frontend:** React 19, Vite 8, Tailwind CSS 4, Framer Motion, Recharts, React Router, Lucide Icons
+- **Backend:** Firebase Auth, Firestore (real-time listeners)
+- **Deploy:** Vercel-ready SPA with `vercel.json` rewrites
 
-## React Compiler
+## Quick Start
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+Create `.env` in the project root (never commit this file):
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```env
+VITE_FIREBASE_API_KEY=
+VITE_FIREBASE_AUTH_DOMAIN=
+VITE_FIREBASE_PROJECT_ID=
+VITE_FIREBASE_STORAGE_BUCKET=
+VITE_FIREBASE_MESSAGING_SENDER_ID=
+VITE_FIREBASE_APP_ID=
+
+# Optional — enables OpenAI responses; falls back to local engine if missing
+VITE_OPENAI_API_KEY=
+```
+
+Enable **Google Sign-In** in Firebase Console → Authentication → Sign-in method.
+
+## Deploy to Vercel
+
+1. Push to GitHub
+2. Import project in Vercel
+3. Add the same `VITE_*` environment variables
+4. Deploy — SPA routing is handled by `vercel.json`
+
+## Pages
+
+| Route | Description |
+|-------|-------------|
+| `/login` | Google OAuth with animated cyber UI |
+| `/dashboard` | Threat severity, heatmap, timeline, risk meter, alerts |
+| `/threats` | Threat intelligence & correlation engine |
+| `/attack-surface` | Asset exposure mapping |
+| `/vulnerabilities` | CVE analysis & CVSS charts |
+| `/ai-assistant` | AI security Q&A with graceful fallback |
+| `/profile` | User settings & session |
+
+## Firestore Collections
+
+`users`, `threats`, `alerts`, `assets`, `vulnerabilities`, `activity_logs`
+
+Data is auto-seeded on first login when collections are empty.
+
+## Scripts
+
+```bash
+npm run dev      # Development server
+npm run build    # Production build
+npm run preview  # Preview production build
+```
