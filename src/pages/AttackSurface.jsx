@@ -4,6 +4,7 @@ import { useThreatData } from '../hooks/useThreatData';
 import { GlassCard } from '../components/ui/GlassCard';
 import { StatusBadge } from '../components/ui/Badge';
 import { AnimatedCounter } from '../components/ui/AnimatedCounter';
+import { ReportExportBar } from '../components/reports/DownloadSecurityReport';
 
 const EXPOSURE_ICONS = {
   external: ExternalLink,
@@ -21,7 +22,8 @@ export default function AttackSurface() {
   }, {});
 
   return (
-    <div className="space-y-6 max-w-[1600px] mx-auto">
+    <div className="space-y-4 sm:space-y-6">
+      <ReportExportBar subtitle="Export attack surface analysis and asset risk posture." />
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {Object.entries(exposureStats).map(([exposure, count], i) => {
           const Icon = EXPOSURE_ICONS[exposure] || Globe;

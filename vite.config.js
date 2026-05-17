@@ -13,6 +13,7 @@ export default defineConfig({
             if (id.includes('firebase')) return 'firebase'
             if (id.includes('recharts') || id.includes('d3-')) return 'charts'
             if (id.includes('framer-motion')) return 'motion'
+            if (id.includes('jspdf')) return 'pdf'
             if (id.includes('react-dom') || id.includes('react-router')) return 'vendor'
           }
         },

@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Filter, Link2 } from 'lucide-react';
 import { useState } from 'react';
 import { useThreatData } from '../hooks/useThreatData';
@@ -8,6 +7,7 @@ import { formatRelativeTime } from '../utils/formatters';
 import { THREAT_TYPES } from '../utils/constants';
 import { EmptyState } from '../components/ui/EmptyState';
 import { ShieldAlert } from 'lucide-react';
+import { ReportExportBar } from '../components/reports/DownloadSecurityReport';
 
 export default function ThreatIntelligence() {
   const { threats, correlations, loading } = useThreatData();
@@ -18,6 +18,7 @@ export default function ThreatIntelligence() {
 
   return (
     <div className="space-y-4 sm:space-y-6">
+      <ReportExportBar subtitle="Export threat intelligence, correlations, and remediation guidance." />
       {correlations.length > 0 && (
         <GlassCard className="border-[#ff3366]/30">
           <div className="flex items-center gap-2 mb-3">

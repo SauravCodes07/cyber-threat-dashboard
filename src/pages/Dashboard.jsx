@@ -7,6 +7,7 @@ import { VulnerableAssets } from '../components/dashboard/VulnerableAssets';
 import { RiskScoreWidget } from '../components/dashboard/RiskScoreWidget';
 import { AlertsFeed } from '../components/dashboard/AlertsFeed';
 import { RecentEvents } from '../components/dashboard/RecentEvents';
+import { ReportExportBar } from '../components/reports/DownloadSecurityReport';
 
 export default function Dashboard() {
   const {
@@ -25,6 +26,7 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-4 sm:space-y-6">
+      <ReportExportBar />
       <ThreatSeverityCards counts={severityCounts} loading={loading} />
 
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
