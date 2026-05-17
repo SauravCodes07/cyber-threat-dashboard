@@ -3,6 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { GlassCard } from '../components/ui/GlassCard';
 import { UserAvatar } from '../components/ui/UserAvatar';
 import { useThreatData } from '../hooks/useThreatData';
+import { PwaInstallCard } from '../components/pwa/InstallAppButton';
 
 export default function Profile() {
   const { user, signOut } = useAuth();
@@ -39,6 +40,8 @@ export default function Profile() {
           </div>
         </div>
       </GlassCard>
+
+      <PwaInstallCard />
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         {stats.map((stat, i) => {

@@ -1,5 +1,6 @@
 import { Menu, Search, Radio } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { InstallAppButton } from '../pwa/InstallAppButton';
 
 export function Header({ title, subtitle, onMenuClick, riskScore }) {
   return (
@@ -20,7 +21,8 @@ export function Header({ title, subtitle, onMenuClick, riskScore }) {
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <InstallAppButton variant="compact" />
           <div className="hidden md:flex items-center gap-2 px-3 py-2 rounded-xl bg-[#0a0f1a] border border-[#1a2744]">
             <Search className="w-4 h-4 text-slate-500" />
             <input
