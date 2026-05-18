@@ -115,7 +115,7 @@ function buildRecommendations(threatData) {
 export function generateSecurityReport(user, threatData) {
   const doc = new jsPDF({ unit: 'mm', format: 'a4' });
   const pageWidth = doc.internal.pageSize.getWidth();
-  let y = 0;
+  let y = 50;
 
   const activeAlerts = threatData.alerts.filter(
     (a) => a.status === 'open' || !a.status
@@ -135,8 +135,6 @@ export function generateSecurityReport(user, threatData) {
   doc.setDrawColor(...BRAND.accent);
   doc.setLineWidth(0.8);
   doc.line(14, 38, pageWidth - 14, 38);
-
-  y = 50;
 
   y = addSectionHeader(doc, 'SECTION 1 — User Information', y);
   autoTable(doc, {
